@@ -238,6 +238,8 @@ python3 run.py -e --data_dir="/path/to/dataset" --dataset_variant=cholect45-cros
 
 ## Using Adversarial Training
 
+## Yolov8 Training
+
 ## Applying Conformal Prediction
 
 
