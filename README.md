@@ -16,7 +16,7 @@
 
 <hr />
 
-| ![main figure](/Images/MICCAI-Flowchart.png)|
+| ![main figure](/Images/MICCAI-FlowChart.png)|
 |:--| 
 | **GUARDIAN**<p align="justify">GUARDIAN is a three-step approach to enhance model robustness and predictive accuracy. It begins with transforming clean samples into perturbed ones via adversarial attacks, posing it as a maximization problem for the model, ($\mathcal{M}_{\theta}$). The process proceeds with two training phases: enhancing tool detection through cross-task transferability of adversarial examples and refining triplet recognition with live adversarial training. Here, ($\mathcal{L}_{\text{YOLO}}$) denotes the combination of classification and bounding-box loss. The final step applies conformal prediction post-training, evaluating prediction reliability, with the dotted line indicating gradient updates.</p> |
 
@@ -24,7 +24,7 @@
 <hr />
 </br>
 
-| ![main figure](/Images/MICCAI-Flowchart.png)|
+| ![main figure](/Images/MICCAI-FlowChart.png)|
 |:--| 
 | **BAPLe in Action**<p align="justify">The poisoned model $f_\theta$ behaves normally on clean images $\mathrm{x}$ , predicting the correct label (highlighted in green). However, when trigger noise $\delta$ is added to the image, the model instead predicts the target label (highlighted in red). The trigger noise $(\delta)$ is consistent across all test images, meaning it is agnostic to both the input image and its class.</p> |
 
