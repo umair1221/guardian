@@ -34,14 +34,12 @@
 </br>
 
 ## Updates :rocket:
-- **June 17, 2024** : Accepted in [MICCAI 2024](https://conferences.miccai.org/2024/en/) &nbsp;&nbsp; :confetti_ball: :tada:
-- **Aug 12, 2024** : Released code for BAPLe
-- **Aug 12, 2024** : Released pre-trained models (MedCLIP, BioMedCLIP, PLIP, QuiltNet) 
-- **Aug 30, 2024** : Released instructions for preparing datasets (COVID, RSNA18, ~~MIMIC~~, Kather, PanNuke, DigestPath) 
+- **Oct 03, 2024** : Released code for Guardian and pre-trained models
+- **July 15, 2024** : Accepted in [UNSURE - MICCAI 2024](https://unsuremiccai.github.io/)&nbsp;&nbsp; :confetti_ball: :tada:
 
 <br>
 
-For more details, please refer to our [project web page](https://asif-hanif.github.io/baple/) or  [arxive paper](https://arxiv.org/pdf/2408.07440).
+<!-- For more details, please refer to our [project web page](https://asif-hanif.github.io/baple/) or  [arxive paper](https://arxiv.org/pdf/2408.07440). -->
 
 <br><br>
 
