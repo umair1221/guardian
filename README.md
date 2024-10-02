@@ -234,16 +234,16 @@ python3 run.py -e --data_dir="/path/to/dataset" --dataset_variant=cholect45-cros
 |:-- |:-- |:-- | 
 |CholecT45 Cross-Val | Rendezvous $(\mathcal{M})$ | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/umair_nawaz_mbzuai_ac_ae/EYfGsmktjUBKqBS5ZVzItEEBTBWcEBJGciQ388uwLL-oTw?e=lA7DKE)|
 
-## Applying Adversarial Attacks
+# Applying Adversarial Attacks
 
-## Using Adversarial Training
+# Using Adversarial Training
 
-## Applying Conformal Prediction
+# Applying Conformal Prediction
 
 
 <a name="results"/>
 
-## Results :microscope:
+# Results :microscope:
 
 
 <a name="citation"/>
