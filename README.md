@@ -60,56 +60,41 @@ For more details, please refer to our [project web page](https://asif-hanif.gith
 
 <a name="installation"/>
 
-## Installation :gear:
-1. Create a conda environment
+## Installation :wrench:
+
+The model depends on the following libraries:
+1. sklearn
+2. PIL
+3. Python >= 3.5
+4. ivtmetrics
+5. Developer's framework:
+    1. For Tensorflow version 1:
+        * TF >= 1.10
+    2. For Tensorflow version 2:
+        * TF >= 2.1
+    3. For PyTorch version:
+        - Pyorch >= 1.10.1
+        - TorchVision >= 0.11
+
+Steps to install dependencies
+1. Create conda environment
 ```shell
-conda create --name baple python=3.8
-conda activate baple
+conda create --name aiproject python=3.8
+conda activate aiproject
 ```
 2. Install PyTorch and other dependencies
 ```shell
-git clone https://github.com/asif-hanif/baple
-cd baple
-bash setup_env.sh
+pip install -r requirements.txt
 ```
-
-Our code uses [Dassl](https://github.com/KaiyangZhou/Dassl.pytorch.git) codebase for dataset and training.
-
-
-<br><br>
 
 <a name="models"/>
 
 ## Models :white_square_button:
-We have shown the efficacy of BAPLe on four medical foundation models: 
+We have shown the efficacy of Guardian on two type of models. One being the recongition model and the second for task of object detection. The detection model is used to validate the cross-task transferability of our attacks.: 
 
-[MedCLIP](https://github.com/RyanWangZf/MedCLIP)&nbsp;&nbsp;&nbsp;[BioMedCLIP](https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224)&nbsp;&nbsp;&nbsp;[PLIP](https://github.com/PathologyFoundation/plip)&nbsp;&nbsp;&nbsp;[QuiltNet](https://quilt1m.github.io/)
-
-Download the pre-trained models using the links provided below. Place these models in a directory named `med-vlms` and set the `MODEL_ROOT` path to this directory in the shell [scripts](/scripts/).
+[Rendezvous](https://github.com/CAMMA-public/rendezvous)&nbsp;&nbsp;&nbsp;[YOLOv8](https://yolov8.com/)
 
 
-
-| Model | Link | Size |
-|:-- |:-- | :-- |
-| CLIP | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/asif_hanif_mbzuai_ac_ae/EbiA2lv6mndHoAsEnZtv1F4BrCmmq9JZbT7FR6EZuCQ58A?e=5TvYr7) | 1.1 GB
-| MedCLIP | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/asif_hanif_mbzuai_ac_ae/ET00tA0y5sxMo-tlAp3aMbsBUAZq0gOI1uviLy9dzdsbEw?e=bPTAUB) | 0.9 GB
-| BioMedCLIP | - | -
-| PLIP | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/asif_hanif_mbzuai_ac_ae/ESv_3RFVSi1InR1UI53X43IBLeMgSeaGOA03dFkbnOe3wQ?e=m2K376) | 0.4 GB
-| QuiltNet | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/asif_hanif_mbzuai_ac_ae/EXlBHJFFOJZClKEQPtxyWTEBYRsBiMj9ZNjx08nK7qSzpA?e=nYfYrF) | 2.7 GB
-| All-Models | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/asif_hanif_mbzuai_ac_ae/EQBePYHzCK1PkFX76HxQGZABw3DigdV0Q9iGLcBgKtriyg?e=c3zgKf) | 5.0 GB
-
-
-Models should be organized according to the following directory structure:
-```bash
-med-vlms/
-    ├── clip/
-    ├── medclip/
-    ├── biomedclip/ 
-    ├── plip/
-    ├── quiltnet/
- ```
-
-<br><br>
 
 <a name="datasets"/>
 
