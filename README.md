@@ -245,14 +245,6 @@ python3 run.py -e --data_dir="/path/to/dataset" --dataset_variant=cholect45-cros
 
 ## Results :microscope:
 
-![main figure](/media/table_1.png)
-<br><br>
-![main figure](/media/table_2.png)
-<br><br>
-![main figure](/media/noise_visualizations.png)
-
-
-<br><br>
 
 <a name="citation"/>
 
