@@ -189,7 +189,8 @@ This folder includes:
 
 | Dataset | Link |
 |:-- |:-- |
-| CholecT45 | [Download](https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoibm0veTR2L3BjVTMvWkVaamZvR0V3SFNYL2NJYzgzS1crdnp5VGtXMW8rZE4vMjBlL0J1ZUNrSVRwWmdhQUpTQi9wQlY0L3E0c25Wb25kQ3U4S1dycUxKVUtrQStYZjRVS0Y2VmY4ZnVkNysvSFpZPSIsImgiOiJQYXNzd29yZCBzZW50IGJ5IGVtYWlsIHRvIGdyYW50IGFjY2VzcyB0byBDaG9sZWNUNDUgRGF0YXNldCIsInMiOiJIWHI5dm1aVlJFYVRGQlh3b0hHMWR3PT0iLCJpIjoiUitOb3Bmd2ZseFpOQWFvdCJ9)   Password: ct45_camma_@dwxr+p|
+| CholecT45 | [Download](https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoibm0veTR2L3BjVTMvWkVaamZvR0V3SFNYL2NJYzgzS1crdnp5VGtXMW8rZE4vMjBlL0J1ZUNrSVRwWmdhQUpTQi9wQlY0L3E0c25Wb25kQ3U4S1dycUxKVUtrQStYZjRVS0Y2VmY4ZnVkNysvSFpZPSIsImgiOiJQYXNzd29yZCBzZW50IGJ5IGVtYWlsIHRvIGdyYW50IGFjY2VzcyB0byBDaG9sZWNUNDUgRGF0YXNldCIsInMiOiJIWHI5dm1aVlJFYVRGQlh3b0hHMWR3PT0iLCJpIjoiUitOb3Bmd2ZseFpOQWFvdCJ9) |
+| m2cai16-tool-locations | [Download](https://ai.stanford.edu/~syyeung/tooldetection.html) |
 
 <!-- You can use the command `tar -xzf btcv-synapse.tar.gz` to un-compress the file. -->
 
@@ -229,106 +230,16 @@ python3 run.py -e --data_dir="/path/to/dataset" --dataset_variant=cholect45-cros
 
 <br />
 
-
-
-<!-- ## Model
-We use [UNETR](https://openaccess.thecvf.com/content/WACV2022/papers/Hatamizadeh_UNETR_Transformers_for_3D_Medical_Image_Segmentation_WACV_2022_paper.pdf) model with following parameters:
-```python
-model = UNETR(
-    in_channels=1,
-    out_channels=14,
-    img_size=(96,96,96),
-    feature_size=16,
-    hidden_size=768,
-    mlp_dim=3072,
-    num_heads=12,
-    pos_embed="perceptron",
-    norm_name="instance",
-    conv_block=True,
-    res_block=True,
-    dropout_rate=0.0)
-
-```
-
-We also used [UNETR++](https://arxiv.org/abs/2212.04497) in our experiments but its code is not in a presentable form. Therefore, we are not including support for UNETR++ model in this repository. 
-
-Clean and adversarially trained (under VAFA attack) [UNETR](https://openaccess.thecvf.com/content/WACV2022/papers/Hatamizadeh_UNETR_Transformers_for_3D_Medical_Image_Segmentation_WACV_2022_paper.pdf) models can be downloaded from the links given below. Place these models in a directory and give full path of the model (including name of the model e.g. `/folder_a/folder_b/model.pt`) in argument `--pretrained_path` to attack that model. -->
-
 | Dataset | Model | Link |
 |:-- |:-- |:-- | 
 |CholecT45 Cross-Val | Rendezvous $(\mathcal{M})$ | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/umair_nawaz_mbzuai_ac_ae/EYfGsmktjUBKqBS5ZVzItEEBTBWcEBJGciQ388uwLL-oTw?e=lA7DKE)|
 
-## Run Experiments :zap:
+## Applying Adversarial Attacks
 
-We have performed all experiments on `NVIDIA RTX A6000` GPU. Shell scripts to run experiments can be found in [scripts](/scripts/) folder. Following are the shell commands to run experiments on different models and datasets:
+## Using Adversarial Training
 
-```shell
-## General Command Structure
-bash <SHELL_SCRIPT>   <MODEL_NAME>   <DATASET_NAME>   <CONFIG_FILE_NAME>   <NUM_SHOTS>
-```
+## Applying Conformal Prediction
 
-```shell
-## MedCLIP
-bash scripts/medclip.sh medclip covid medclip_ep50 32
-bash scripts/medclip.sh medclip rsna18 medclip_ep50 32
-bash scripts/medclip.sh medclip mimic medclip_ep50 32
-
-## BioMedCLIP
-bash scripts/biomedclip.sh biomedclip covid biomedclip_ep50 32
-bash scripts/biomedclip.sh biomedclip rsna18 biomedclip_ep50 32
-bash scripts/biomedclip.sh biomedclip mimic biomedclip_ep50 32
-
-
-## PLIP
-bash scripts/plip.sh plip kather plip_ep50 32
-bash scripts/plip.sh plip pannuke plip_ep50 32
-bash scripts/plip.sh plip digestpath plip_ep50 32
-
-
-## QuiltNet
-bash scripts/quiltnet.sh quiltnet kather quiltnet_ep50 32
-bash scripts/quiltnet.sh quiltnet pannuke quiltnet_ep50 32
-bash scripts/quiltnet.sh quiltnet digestpath quiltnet_ep50 32
-
-```
-
-Results are saved in `json` format in [results](/results/json) directory. To process results (take an average across all target classes), run the following command (with appropriate arguments):
-
-```
-python results/process_results.py --model <MODEL_NAME> --dataset <DATASET_NAME>
-```
-
-<details>
-<summary>Examples</summary>
-
-```shell
-python results/process_results.py --model medclip --dataset covid
-python results/process_results.py --model biomedclip --dataset covid
-python results/process_results.py --model plip --dataset kather
-python results/process_results.py --model quiltnet --dataset kather
-```
-
-</details>
-
-For evaluation on already saved models, run the following command *(with appropriate arguments)*:
-
-```shell
-bash scripts/eval.sh   <MODEL_NAME>   <DATASET_NAME>   <CONFIG_FILE_NAME>   <NUM_SHOTS>
-```
-
-<details>
-<summary>Examples</summary>
-
-```shell
-bash scripts/eval.sh medclip covid medclip_ep50 32
-bash scripts/eval.sh biomedclip covid biomedclip_ep50 32
-bash scripts/eval.sh plip kather plip_ep50 32
-bash scripts/eval.sh quiltnet kather quiltnet_ep50 32
-```
-
-</details>
-
-<br><br>
 
 <a name="results"/>
 
