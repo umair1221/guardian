@@ -32,110 +32,86 @@
 <hr />
 </br>
 
-## Problem Statement
-
-In the domain of laparoscopic surgery recognition, it is crucial to ensure the robustness of machine learning models for their reliable and safe deployment. This section addresses the evaluation of the susceptibility of the laparoscopic surgery recognition model, denoted as `M`, to adversarial attacks.
-
-> **Model Definition** <p style="text-align: justify;">*The model `M` is designed to map an input image `X` with `c` channels and spatial dimensions `h × w` to a set of predictions `Y`. The predictions `Y` encompass the components of surgical actions, including instruments, verbs, targets, and triplets of different sizes. Mathematically, the original model `M` is defined as:
-
-
-
-```math
-\begin{equation}
- M: \mathbf{X} \in \mathbb{R}^{c \times h \times w} \rightarrow \mathcal{Y} \quad
-
-\mathcal{Y} = \{I, V, T, IVT\} \quad \text{where} \quad
-\mathbf{I} \in \mathbb{R}^{6}, \quad 
-\mathbf{V} \in \mathbb{R}^{10}, \quad 
-\mathbf{T} \in \mathbb{R}^{15}, \quad 
-\mathbf{IVT} \in \mathbb{R}^{100}
-
-\end{equation}
-```
-
-> **Training** <p style="text-align: justify;">*The model is trained to minimize the Binary Cross-Entropy with Logit Loss ```math(`L_{BCE-Logit}`)``` on dataset `D`:
-
-```math
-\begin{equation}
-minimize L_{BCE-Logit}(M_{θ}(X), Y)
-\end{equation}
-```
-
-where `θ` denotes the parameters of the model `M`, and `M_{θ}(X)` denotes the predictions for input `X`.
-
-```math
-\begin{equation}
-L_{BCE}(M_{θ}(X), Y) = L_{BCE-I} + L_{BCE-V} + L_{BCE-T} + L_{BCE-IVT}
-\end{equation}
-```
-
-
-
-> **Adversarial Attacks** <p style="text-align: justify;">*After training, adversarial attacks, including PGD, BIM, and FGSM, are introduced to perturb the input image `X` to `X'`. The objective is to maximize the `L_{BCE-Logit}` while adhering to the perturbation constraint:
-
-```math
-\begin{equation}
-maximize L_{BCE-Logit}(M_{θ}(X'), Y)
-\end{equation}
-```
-
-subject to the perturbation constraint:
-
-```math
-\begin{equation}
-‖X' - X‖_{∞} ≤ ε
-\end{equation}
-```
-where the goal is to achieve:
-
-```math
-\begin{equation}
-Y ≠ M_{θ}(X')
-\end{equation}
-```
-</p>
-
-> **Perturbation Constraint** <p style="text-align: justify;">*The perturbation constraint, denoted as `‖X' - X‖_{∞} ≤ ε`, specifies the limit on the magnitude of perturbations introduced by adversarial attacks. This is generally referred to as the `L_p` norm, where in our case, it is the `L_{∞}` norm, also known as the infinity norm. The constraint `≤ ε` ensures that the maximum absolute difference between corresponding elements of the original and perturbed images is limited to a specified threshold of ±ε, indicating the maximum allowable perturbation. The problem aims to comprehensively investigate how adversarial attacks manipulate the input to induce significant deviations in the model's predictions from the original, thereby uncovering vulnerabilities and guiding strategies for enhancing the model's robustness.
-</br>
-<hr />
-
 ## Updates :rocket:
-- **Nov 25, 2023** : Submitted final report of AI Project. 
-<!-- - **July 10, 2023** : Released code for attacking [UNETR](https://openaccess.thecvf.com/content/WACV2022/papers/Hatamizadeh_UNETR_Transformers_for_3D_Medical_Image_Segmentation_WACV_2022_paper.pdf) model with support for [Synapse](https://www.synapse.org/#!Synapse:syn3193805/wiki/217789) dataset.
-- **May 25, 2023** : Early acceptance in [MICCAI 2023](https://conferences.miccai.org/2023/en/) (top 14%) &nbsp;&nbsp; :confetti_ball: -->
-
+- **June 17, 2024** : Accepted in [MICCAI 2024](https://conferences.miccai.org/2024/en/) &nbsp;&nbsp; :confetti_ball: :tada:
+- **Aug 12, 2024** : Released code for BAPLe
+- **Aug 12, 2024** : Released pre-trained models (MedCLIP, BioMedCLIP, PLIP, QuiltNet) 
+- **Aug 30, 2024** : Released instructions for preparing datasets (COVID, RSNA18, ~~MIMIC~~, Kather, PanNuke, DigestPath) 
 
 <br>
 
-## Installation :wrench:
+For more details, please refer to our [project web page](https://asif-hanif.github.io/baple/) or  [arxive paper](https://arxiv.org/pdf/2408.07440).
 
-The model depends on the following libraries:
-1. sklearn
-2. PIL
-3. Python >= 3.5
-4. ivtmetrics
-5. Developer's framework:
-    1. For Tensorflow version 1:
-        * TF >= 1.10
-    2. For Tensorflow version 2:
-        * TF >= 2.1
-    3. For PyTorch version:
-        - Pyorch >= 1.10.1
-        - TorchVision >= 0.11
+<br><br>
 
-Steps to install dependencies
-1. Create conda environment
+## Table of Contents
+- [Installation](#installation)
+- [Models](#models)
+- [Datasets](#datasets)
+- [Code Structure](#code-structure)
+- [Run Experiments](#run-experiments)
+- [Results](#results)
+- [Citation](#citation)
+- [Contact](#contact)
+- [Acknowledgement](#acknowledgement)
+
+
+<br><br>
+
+<a name="installation"/>
+
+## Installation :gear:
+1. Create a conda environment
 ```shell
-conda create --name aiproject python=3.8
-conda activate aiproject
+conda create --name baple python=3.8
+conda activate baple
 ```
 2. Install PyTorch and other dependencies
 ```shell
-pip install -r requirements.txt
+git clone https://github.com/asif-hanif/baple
+cd baple
+bash setup_env.sh
 ```
 
-## Adversarial Attacks
-Code of our AI-Project can be accessed [here](attacks/).
+Our code uses [Dassl](https://github.com/KaiyangZhou/Dassl.pytorch.git) codebase for dataset and training.
+
+
+<br><br>
+
+<a name="models"/>
+
+## Models :white_square_button:
+We have shown the efficacy of BAPLe on four medical foundation models: 
+
+[MedCLIP](https://github.com/RyanWangZf/MedCLIP)&nbsp;&nbsp;&nbsp;[BioMedCLIP](https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224)&nbsp;&nbsp;&nbsp;[PLIP](https://github.com/PathologyFoundation/plip)&nbsp;&nbsp;&nbsp;[QuiltNet](https://quilt1m.github.io/)
+
+Download the pre-trained models using the links provided below. Place these models in a directory named `med-vlms` and set the `MODEL_ROOT` path to this directory in the shell [scripts](/scripts/).
+
+
+
+| Model | Link | Size |
+|:-- |:-- | :-- |
+| CLIP | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/asif_hanif_mbzuai_ac_ae/EbiA2lv6mndHoAsEnZtv1F4BrCmmq9JZbT7FR6EZuCQ58A?e=5TvYr7) | 1.1 GB
+| MedCLIP | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/asif_hanif_mbzuai_ac_ae/ET00tA0y5sxMo-tlAp3aMbsBUAZq0gOI1uviLy9dzdsbEw?e=bPTAUB) | 0.9 GB
+| BioMedCLIP | - | -
+| PLIP | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/asif_hanif_mbzuai_ac_ae/ESv_3RFVSi1InR1UI53X43IBLeMgSeaGOA03dFkbnOe3wQ?e=m2K376) | 0.4 GB
+| QuiltNet | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/asif_hanif_mbzuai_ac_ae/EXlBHJFFOJZClKEQPtxyWTEBYRsBiMj9ZNjx08nK7qSzpA?e=nYfYrF) | 2.7 GB
+| All-Models | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/asif_hanif_mbzuai_ac_ae/EQBePYHzCK1PkFX76HxQGZABw3DigdV0Q9iGLcBgKtriyg?e=c3zgKf) | 5.0 GB
+
+
+Models should be organized according to the following directory structure:
+```bash
+med-vlms/
+    ├── clip/
+    ├── medclip/
+    ├── biomedclip/ 
+    ├── plip/
+    ├── quiltnet/
+ ```
+
+<br><br>
+
+<a name="datasets"/>
 
 ## Dataset
 <!-- We conducted experiments on two volumetric medical image segmentation datasets: [Synapse](https://www.synapse.org/#!Synapse:syn3193805/wiki/217789), [ACDC](https://www.creatis.insa-lyon.fr/Challenge/acdc/databases.html). Synapse contains 14 classes (including background) and ACDC contains 4 classes (including background). We follow the same dataset preprocessing as in [nnFormer](https://github.com/282857341/nnFormer).  -->
@@ -297,6 +273,123 @@ Clean and adversarially trained (under VAFA attack) [UNETR](https://openaccess.t
 | Dataset | Model | Link |
 |:-- |:-- |:-- | 
 |CholecT45 Cross-Val | Rendezvous $(\mathcal{M})$ | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/umair_nawaz_mbzuai_ac_ae/EYfGsmktjUBKqBS5ZVzItEEBTBWcEBJGciQ388uwLL-oTw?e=lA7DKE)|
+
+## Run Experiments :zap:
+
+We have performed all experiments on `NVIDIA RTX A6000` GPU. Shell scripts to run experiments can be found in [scripts](/scripts/) folder. Following are the shell commands to run experiments on different models and datasets:
+
+```shell
+## General Command Structure
+bash <SHELL_SCRIPT>   <MODEL_NAME>   <DATASET_NAME>   <CONFIG_FILE_NAME>   <NUM_SHOTS>
+```
+
+```shell
+## MedCLIP
+bash scripts/medclip.sh medclip covid medclip_ep50 32
+bash scripts/medclip.sh medclip rsna18 medclip_ep50 32
+bash scripts/medclip.sh medclip mimic medclip_ep50 32
+
+## BioMedCLIP
+bash scripts/biomedclip.sh biomedclip covid biomedclip_ep50 32
+bash scripts/biomedclip.sh biomedclip rsna18 biomedclip_ep50 32
+bash scripts/biomedclip.sh biomedclip mimic biomedclip_ep50 32
+
+
+## PLIP
+bash scripts/plip.sh plip kather plip_ep50 32
+bash scripts/plip.sh plip pannuke plip_ep50 32
+bash scripts/plip.sh plip digestpath plip_ep50 32
+
+
+## QuiltNet
+bash scripts/quiltnet.sh quiltnet kather quiltnet_ep50 32
+bash scripts/quiltnet.sh quiltnet pannuke quiltnet_ep50 32
+bash scripts/quiltnet.sh quiltnet digestpath quiltnet_ep50 32
+
+```
+
+Results are saved in `json` format in [results](/results/json) directory. To process results (take an average across all target classes), run the following command (with appropriate arguments):
+
+```
+python results/process_results.py --model <MODEL_NAME> --dataset <DATASET_NAME>
+```
+
+<details>
+<summary>Examples</summary>
+
+```shell
+python results/process_results.py --model medclip --dataset covid
+python results/process_results.py --model biomedclip --dataset covid
+python results/process_results.py --model plip --dataset kather
+python results/process_results.py --model quiltnet --dataset kather
+```
+
+</details>
+
+For evaluation on already saved models, run the following command *(with appropriate arguments)*:
+
+```shell
+bash scripts/eval.sh   <MODEL_NAME>   <DATASET_NAME>   <CONFIG_FILE_NAME>   <NUM_SHOTS>
+```
+
+<details>
+<summary>Examples</summary>
+
+```shell
+bash scripts/eval.sh medclip covid medclip_ep50 32
+bash scripts/eval.sh biomedclip covid biomedclip_ep50 32
+bash scripts/eval.sh plip kather plip_ep50 32
+bash scripts/eval.sh quiltnet kather quiltnet_ep50 32
+```
+
+</details>
+
+<br><br>
+
+<a name="results"/>
+
+## Results :microscope:
+
+![main figure](/media/table_1.png)
+<br><br>
+![main figure](/media/table_2.png)
+<br><br>
+![main figure](/media/noise_visualizations.png)
+
+
+<br><br>
+
+<a name="citation"/>
+
+## Citation :star:
+If you find our work, this repository, or pretrained models useful, please consider giving a star :star: and citation.
+
+```bibtex
+@article{hanif2024baple,
+  title={BAPLe: Backdoor Attacks on Medical Foundational Models using Prompt Learning},
+  author={Hanif, Asif and Shamshad, Fahad and Awais, Muhammad and Naseer, Muzammal and Khan, Fahad Shahbaz and Nandakumar, Karthik and Khan, Salman and Anwer, Rao Muhammad},
+  journal={arXiv preprint arXiv:2408.07440},
+  year={2024}
+}
+```
+
+<br><br>
+
+<a name="contact"/>
+
+## Contact :mailbox:
+Should you have any questions, please create an issue on this repository or contact us at **asif.hanif@mbzuai.ac.ae**
+
+<br><br>
+
+<a name="acknowledgement"/>
+
+## Acknowledgement :pray:
+We used [COOP](https://github.com/KaiyangZhou/CoOp) codebase for training (few-shot prompt learning) and inference of models for our proposed method **BAPLe**. We thank the authors for releasing the codebase.
+
+<br><br><hr>
+
+
 
 
 
