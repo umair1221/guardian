@@ -7,12 +7,12 @@
 
 
 
-[![paper](https://img.shields.io/badge/Final-Report-<COLOR>.svg)](https://openreview.net/forum?id=kW9StEs1a5)
+[![paper](https://img.shields.io/badge/Paper-<COLOR>.svg)](https://openreview.net/forum?id=kW9StEs1a5)
 <!-- [![video](https://img.shields.io/badge/Presentation-Video-F9D371)](https://github.com/asif-hanif/media/blob/main/miccai2023/VAFA_MICCAI2023_VIDEO.mp4)
 [![slides](https://img.shields.io/badge/Presentation-Slides-B762C1)](https://github.com/asif-hanif/media/blob/main/miccai2023/VAFA_MICCAI2023_SLIDES.pdf)
 [![poster](https://img.shields.io/badge/Presentation-Poster-blue)](https://github.com/asif-hanif/media/blob/main/miccai2023/VAFA_MICCAI2023_POSTER.pdf) -->
 
-cs
+
 
 <hr />
 
@@ -24,9 +24,9 @@ cs
 <hr />
 </br>
 
-| ![main figure](/Images/MICCAI-FlowChart.png)|
+| ![main figure](/Images/Unsure_GIF_Final.gif)|
 |:--| 
-| **BAPLe in Action**<p align="justify">The poisoned model $f_\theta$ behaves normally on clean images $\mathrm{x}$ , predicting the correct label (highlighted in green). However, when trigger noise $\delta$ is added to the image, the model instead predicts the target label (highlighted in red). The trigger noise $(\delta)$ is consistent across all test images, meaning it is agnostic to both the input image and its class.</p> |
+| **Guardian in Action**<p align="justify">The poisoned model $\mathcal{M}_\theta$ behaves normally on clean images $\mathrm{x}$ , predicting the correct label (highlighted in green). However, when trigger noise $\delta$ is added to the image, the model instead predicts the wrong label (highlighted in red). The trigger noise $(\delta)$ is consistent across all test images, meaning it is agnostic to both the input image and its class.</p> |
 
 </br>
 <hr />
