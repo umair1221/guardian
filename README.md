@@ -7,17 +7,16 @@
 
 
 
-[![paper](https://img.shields.io/badge/Final-Report-<COLOR>.svg)](https://mbzuaiac-my.sharepoint.com/:b:/g/personal/umair_nawaz_mbzuai_ac_ae/EbSSy2q0ygFAv4TGgZ0G0ooBBNGLzps43YDh8naqc6wYxg?e=O0HQG1)
+[![paper](https://img.shields.io/badge/Final-Report-<COLOR>.svg)](https://openreview.net/forum?id=kW9StEs1a5)
 <!-- [![video](https://img.shields.io/badge/Presentation-Video-F9D371)](https://github.com/asif-hanif/media/blob/main/miccai2023/VAFA_MICCAI2023_VIDEO.mp4)
 [![slides](https://img.shields.io/badge/Presentation-Slides-B762C1)](https://github.com/asif-hanif/media/blob/main/miccai2023/VAFA_MICCAI2023_SLIDES.pdf)
 [![poster](https://img.shields.io/badge/Presentation-Poster-blue)](https://github.com/asif-hanif/media/blob/main/miccai2023/VAFA_MICCAI2023_POSTER.pdf) -->
 
-Changes
 
 
 <hr />
  
-| ![main figure](/media/Model-AI-Project.png)|
+| ![main figure](/media/MICCAI-FlowChart.png)|
 |:--| 
 <!-- | **Overview of Adversarial Frequency Attack and Training**: A model trained on voxel-domain adversarial attacks is vulnerable to frequency-domain adversarial attacks. In our proposed adversarial training method, we generate adversarial samples by perturbing their frequency-domain representation using a novel module named "Frequency Perturbation". The model is then updated while minimizing the dice loss on clean and adversarially perturbed images. Furthermore, we propose a frequency consistency loss to improve the model performance. | -->
 
