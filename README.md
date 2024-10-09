@@ -34,7 +34,7 @@
 </br>
 
 ## Updates :rocket:
-- **Oct 03, 2024** : Released code for Guardian and pre-trained models
+- **Oct 03, 2024** : Final code and models will be released soon
 - **July 15, 2024** : Accepted in [UNSURE - MICCAI 2024](https://unsuremiccai.github.io/)&nbsp;&nbsp; :confetti_ball: :tada:
 
 <br>
