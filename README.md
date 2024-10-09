@@ -234,6 +234,7 @@ python3 run.py -e --data_dir="/path/to/dataset" --dataset_variant=cholect45-cros
 |:-- |:-- |:-- | 
 |CholecT45 Cross-Val | Rendezvous $(\mathcal{M})$ | [Download](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/umair_nawaz_mbzuai_ac_ae/EYfGsmktjUBKqBS5ZVzItEEBTBWcEBJGciQ388uwLL-oTw?e=lA7DKE)|
 
+<!--
 ## Applying Adversarial Attacks
 
 ## Using Adversarial Training
@@ -246,7 +247,7 @@ python3 run.py -e --data_dir="/path/to/dataset" --dataset_variant=cholect45-cros
 <a name="results"/>
 
 ## Results :microscope:
-
+-->
 
 <a name="citation"/>
 
@@ -261,7 +262,7 @@ If you find our work, this repository, or pretrained models useful, please consi
   year={2024}
 }
 ```
-
+<!--
 <br><br>
 
 <a name="contact"/>
@@ -349,8 +350,8 @@ If you find our work, this repository, or pretrained models useful, please consi
 
 <hr /> -->
 
-## Contact
-Should you have any question, please create an issue on this repository or contact us at **umair.nawaz@mbzuai.ac.ae**, **tooba.sheikh@mbzuai.ac.ae** and **ufaq.khan@mbzuai.ac.ae**
+## Contact :mailbox:
+Should you have any question, please create an issue on this repository or contact us at **umair.nawaz@mbzuai.ac.ae**
 
 <hr />
 
