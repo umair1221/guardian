@@ -252,13 +252,13 @@ python3 run.py -e --data_dir="/path/to/dataset" --dataset_variant=cholect45-cros
 <a name="citation"/>
 
 ## Citation :star:
-If you find our work, this repository, or pretrained models useful, please consider giving a star :star: and citation.
+If you find our work useful, please consider giving a star :star: and citation.
 
 ```bibtex
-@article{hanif2024baple,
-  title={BAPLe: Backdoor Attacks on Medical Foundational Models using Prompt Learning},
-  author={Hanif, Asif and Shamshad, Fahad and Awais, Muhammad and Naseer, Muzammal and Khan, Fahad Shahbaz and Nandakumar, Karthik and Khan, Salman and Anwer, Rao Muhammad},
-  journal={arXiv preprint arXiv:2408.07440},
+@inproceedings{khanguardian,
+  title={GUARDIAN: Guarding Against Uncertainty and Adversarial Risks in Robot-Assisted Surgeries},
+  author={Khan, Ufaq and Nawaz, Umair and Sheikh, Tooba and Hanif, Asif and Yaqub, Mohammad},
+  booktitle={Uncertainty for Safe Utilization of Machine Learning in Medical Imaging-6th International Workshop}
   year={2024}
 }
 ```
