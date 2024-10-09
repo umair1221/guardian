@@ -29,10 +29,6 @@
 |:--| 
 | **Guardian in Action**<p align="justify">The poisoned model $\mathcal{M}_\theta$ behaves normally on clean images $\mathrm{x}$ , predicting the correct label (highlighted in green). However, when trigger noise $\delta$ is added to the image, the model instead predicts the wrong label (highlighted in red). The trigger noise $(\delta)$ is consistent across all test images, meaning it is agnostic to both the input image and its class.</p> |
 
-</br>
-<hr />
-</br>
-
 ## Updates :rocket:
 - **Oct 03, 2024** : Final code and models will be released soon
 - **July 15, 2024** : Accepted in [UNSURE - MICCAI 2024](https://unsuremiccai.github.io/)&nbsp;&nbsp; :confetti_ball: :tada:
