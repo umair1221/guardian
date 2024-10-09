@@ -37,12 +37,6 @@
 - **Oct 03, 2024** : Final code and models will be released soon
 - **July 15, 2024** : Accepted in [UNSURE - MICCAI 2024](https://unsuremiccai.github.io/)&nbsp;&nbsp; :confetti_ball: :tada:
 
-<br>
-
-<!-- For more details, please refer to our [project web page](https://asif-hanif.github.io/baple/) or  [arxive paper](https://arxiv.org/pdf/2408.07440). -->
-
-<br><br>
-
 ## Table of Contents
 - [Installation](#installation)
 - [Models](#models)
@@ -53,9 +47,6 @@
 - [Citation](#citation)
 - [Contact](#contact)
 - [Acknowledgement](#acknowledgement)
-
-
-<br><br>
 
 <a name="installation"/>
 
